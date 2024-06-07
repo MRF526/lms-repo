@@ -1,0 +1,174 @@
+<FlatList 
+                data={chaptersGD}
+                renderItem={renderchapters}
+                keyExtractor={(item) => item.id}
+                
+                
+                
+                
+                
+                
+                
+                />
+
+
+
+
+
+
+
+
+
+
+                import React, { useState } from 'react';
+                import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList, ScrollView } from 'react-native';
+                //import Video from 'react-native-video';
+                import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+                import OtherScreen from './OtherScreen';
+                import CourseTabs from './Course';
+                import { chaptersGD } from '../components/Chapters';
+                import T14B from '../components/T14B';
+                
+                
+                
+                
+                const Tab = createMaterialTopTabNavigator();
+                
+                const CourseDetail = () => {
+                
+                    const renderchapters=({item})=>{
+                        console.log(item); // Log to ensure item is received correctly
+                    return (
+                        <View style={styles.chapterContainer}>
+                            <TouchableOpacity style={styles.chapterheading}>
+                                <Text>{item.title}</Text>
+                            </TouchableOpacity>
+                        </View>
+                    );}
+                
+                    return (
+                        <View>
+                            <View style={styles.videocontainer}>
+                           <Image 
+                           source={require('../assets/images/play.png')}
+                           style={{width:64, height:64}}
+                           />
+                           
+                
+                        </View>
+                        <View style={[styles.middletab,{marginBottom:10}]} >
+                            <TouchableOpacity >
+                                <Text> Overview</Text>
+                            </TouchableOpacity>
+                
+                            <TouchableOpacity  >
+                                <Text style={{backgroundColor:'blue'}}> Lessons</Text>
+                            </TouchableOpacity>
+                
+                            <TouchableOpacity >
+                                <Text> Reviews</Text>
+                            </TouchableOpacity>
+                            
+                
+                           </View>
+                           <View style={{margin:10, }}>
+                            <Text>{chaptersGD}</Text>
+                            <View>
+                            {chaptersGD.map((chapter) => (
+                                    <View key={chapter.id} style={styles.chapterContainer}>
+                                        <Text>{chapter.title}</Text>
+                                    </View>
+                                ))}
+                            </View>
+                
+                                
+                
+                
+                
+                
+                
+                
+                            </View>
+                
+                
+                        
+                
+                
+                            
+                        </View>
+                        
+                       
+                
+                
+                
+                
+                
+                
+                
+                    )
+                
+                }
+                const styles = StyleSheet.create({
+                    videocontainer: {
+                        width: 'auto',
+                        height: 200,
+                        backgroundColor: 'rgb(196, 196, 196)',
+                        justifyContent: 'center',
+                        //alignContent: 'center',
+                        alignItems: 'center',
+                        marginTop: 35,
+                
+                    },
+                    chapterheading:{
+                        width:338,
+                        height:49,
+                        backgroundColor:'#e6ebf5',
+                        borderRadius:10,
+                        padding:8,
+                        borderWidth:1,
+                
+                
+                
+                
+                
+                
+                    },
+                    text:{
+                
+                
+                        
+                    },
+                
+                
+                    middletab:{
+                
+                        flexDirection:'row',
+                        justifyContent:'space-around',
+                        //borderWidth:1,
+                        borderBottomWidth:2
+                
+                    }
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                })
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                export default CourseDetail;
